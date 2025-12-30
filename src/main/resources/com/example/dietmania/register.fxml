@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane prefHeight="720.0" prefWidth="1080.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.dietmania.Controllers.RegisterController" style="-fx-background-color: #ffffff;">
+
+   <!-- Top Navigation Bar - 30% height -->
+   <Rectangle height="100.0" width="1080.0" fill="#008e9a" StackPane.alignment="TOP_CENTER" />
+
+
+
+   <!-- "Register" Text on Top Bar -->
+   <Label style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="Register" StackPane.alignment="TOP_LEFT">
+      <StackPane.margin>
+         <Insets top="30.0" left="50.0" />
+      </StackPane.margin>
+   </Label>
+
+   <!-- Main Content Area -->
+   <VBox alignment="CENTER" spacing="40.0" StackPane.alignment="CENTER">
+      <padding>
+         <Insets top="100.0" />
+      </padding>
+
+      <!-- Logo and Form Container -->
+      <HBox alignment="CENTER" spacing="80.0">
+         <!-- Logo on Left -->
+         <VBox alignment="CENTER" >
+            <ImageView fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@images/logo.png" />
+            </ImageView>
+         </VBox>
+
+         <!-- Vertical Divider -->
+         <Rectangle fill="#e0e0e0" height="400.0" width="1.0" />
+
+         <!-- Form on Right - Two Column Layout -->
+         <VBox alignment="CENTER_LEFT" spacing="20.0" prefWidth="600.0">
+            <!-- First Row: Name and Email -->
+            <HBox spacing="20.0" alignment="CENTER_LEFT">
+               <!-- Name Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Full Name" />
+                  <TextField fx:id="nameField" prefHeight="45.0" prefWidth="290.0" promptText="Enter your full name" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+
+               <!-- Email Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Email" />
+                  <TextField fx:id="emailField" prefHeight="45.0" prefWidth="290.0" promptText="Enter your email" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+            </HBox>
+
+            <!-- Second Row: Password and Confirm Password -->
+            <HBox spacing="20.0" alignment="CENTER_LEFT">
+               <!-- Password Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Password" />
+                  <PasswordField fx:id="passwordField" prefHeight="45.0" prefWidth="290.0" promptText="Enter your password" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+
+               <!-- Confirm Password Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Confirm Password" />
+                  <PasswordField fx:id="confirmPasswordField" prefHeight="45.0" prefWidth="290.0" promptText="Confirm your password" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+            </HBox>
+
+            <!-- Third Row: Age and Gender -->
+            <HBox spacing="20.0" alignment="CENTER_LEFT">
+               <!-- Age Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Age" />
+                  <TextField fx:id="ageField" prefHeight="45.0" prefWidth="290.0" promptText="Enter your age" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+
+               <!-- Gender Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Gender" />
+                  <ComboBox fx:id="genderCombo" prefHeight="45.0" prefWidth="290.0" promptText="Select gender" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+            </HBox>
+
+            <!-- Fourth Row: Weight and Height -->
+            <HBox spacing="20.0" alignment="CENTER_LEFT">
+               <!-- Weight Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Weight (kg)" />
+                  <TextField fx:id="kgField" prefHeight="45.0" prefWidth="290.0" promptText="Enter weight in kg" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+
+               <!-- Height Field -->
+               <VBox spacing="8.0" prefWidth="290.0">
+                  <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Height (cm)" />
+                  <TextField fx:id="lengthField" prefHeight="45.0" prefWidth="290.0" promptText="Enter height in cm" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+               </VBox>
+            </HBox>
+
+            <!-- Fifth Row: Target (Full Width) -->
+            <VBox spacing="8.0" prefWidth="600.0">
+               <Label style="-fx-font-size: 14px; -fx-font-weight: 600; -fx-text-fill: #333333;" text="Fitness Goal" />
+
+                  <ComboBox fx:id="targetCombo" prefHeight="45.0" prefWidth="600.0" promptText="Select target" style="-fx-background-color: transparent; -fx-border-color: #008e9a; -fx-border-radius: 5; -fx-border-width: 2; -fx-padding: 0 12; -fx-font-size: 14px;" />
+            </VBox>
+
+            <!-- Buttons Row -->
+            <HBox spacing="20.0" alignment="CENTER" style="-fx-padding: 20 0 0 0;">
+               <!-- Register Button -->
+               <Button onAction="#handleRegister" prefHeight="45.0" prefWidth="290.0" style="-fx-background-color: #008e9a; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-radius: 5; -fx-cursor: hand;" text="Register" />
+
+               <!-- Back Button -->
+               <Button onAction="#handleBack" prefHeight="45.0" prefWidth="290.0" style="-fx-background-color: #e0e0e0; -fx-text-fill: #333333; -fx-font-weight: bold; -fx-font-size: 16px; -fx-background-radius: 5; -fx-cursor: hand; -fx-border-color: #cccccc; -fx-border-width: 2;" text="Back to Login" />
+            </HBox>
+
+            <!-- Login Link -->
+            <HBox alignment="CENTER" spacing="5.0" style="-fx-padding: 10 0 0 0;">
+               <Label style="-fx-text-fill: #666666; -fx-font-size: 14px;" text="Already have an account?" />
+               <Button onAction="#handleBack" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #008e9a; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand; -fx-padding: 0;" text="Login" />
+            </HBox>
+         </VBox>
+      </HBox>
+   </VBox>
+
+
+
+   <Button fx:id="closeBtn" StackPane.alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#close" style="-fx-background-color: RED;" text="X" textFill="WHITE">
+      <StackPane.margin>
+         <Insets top="30.0" right="30.0" />
+      </StackPane.margin>
+   </Button>
+
+
+
+</StackPane>

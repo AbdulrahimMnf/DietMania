@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.example.dietmania.Controllers.MainController"
+           prefHeight="720" prefWidth="1080"
+           style="-fx-background-color: #ffffff;">
+
+   <!-- Top Bar -->
+   <Rectangle height="70" width="1080"
+              fill="#008e9a"
+              StackPane.alignment="TOP_CENTER"/>
+
+   <!-- User Info at Top Left -->
+   <HBox alignment="CENTER_LEFT"
+         StackPane.alignment="TOP_LEFT"
+         spacing="10"
+         style="-fx-padding: 20 0 0 40;">
+      <VBox>
+         <Label fx:id="userNameLabel" text="User Name"
+                style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: white;"/>
+         <Label fx:id="userEmailLabel" text="mail@test.com"
+                style="-fx-font-size: 12px; -fx-text-fill: #e0e0e0;"/>
+      </VBox>
+   </HBox>
+
+
+
+   <!-- Main Content -->
+   <VBox alignment="TOP_CENTER" spacing="30"
+         StackPane.alignment="CENTER">
+      <padding>
+         <Insets top="100" left="40" right="40" bottom="40"/>
+      </padding>
+
+      <!-- User Stats Card -->
+      <HBox spacing="40" alignment="CENTER_LEFT"
+            style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);">
+
+         <!-- Left Column - Personal Info -->
+         <VBox spacing="15" prefWidth="250">
+            <Label text="Personal Info"
+                   style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+            <HBox spacing="10">
+               <Label text="Gender:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="userGenderLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10">
+               <Label text="Weight:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="userWeightLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10">
+               <Label text="Height:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="userHeightLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10">
+               <Label text="Target:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="userTargetLabel" text="---" style="-fx-font-weight: bold; -fx-text-fill: #ff9800;"/>
+            </HBox>
+
+            <Button text="Edit"
+                    onAction="#navigateToEditProfile"
+                    style="-fx-background-color: #008e9a; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-background-radius: 4;"/>
+         </VBox>
+
+         <!-- Separator -->
+         <Rectangle width="1" height="140" fill="#e0e0e0"/>
+
+         <!-- Middle Column - Health Metrics -->
+         <VBox spacing="15" prefWidth="250">
+            <Label text="Health Metrics"
+                   style="-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+            <HBox spacing="10">
+               <Label text="BMR:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="bmrLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10">
+               <Label text="BMI:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="bmiLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10">
+               <Label text="Protein:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="proteinLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+
+            <HBox spacing="10">
+               <Label text="Water:" style="-fx-text-fill: #666; -fx-min-width: 80;"/>
+               <Label fx:id="waterLabel" text="---" style="-fx-font-weight: bold;"/>
+            </HBox>
+         </VBox>
+
+         <!-- Separator -->
+         <Rectangle width="1" height="140" fill="#e0e0e0"/>
+
+         <!-- Right Column - KCAL -->
+         <VBox alignment="CENTER" spacing="5" prefWidth="200">
+            <Label text="Daily KCAL"
+                   style="-fx-font-size: 14; -fx-text-fill: #666;"/>
+            <Label fx:id="kcalLabel" text="1750"
+                   style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
+            <Label text="KCAL"
+                   style="-fx-font-size: 14; -fx-text-fill: #666;"/>
+         </VBox>
+      </HBox>
+
+      <!-- Records Section -->
+      <VBox spacing="15"
+            style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);">
+
+         <HBox spacing="10">
+            <Label text="Record"
+                   style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+            <Label text="Past"
+                   style="-fx-font-size: 16; -fx-text-fill: #666;"/>
+         </HBox>
+
+         <!-- Record Items (Static for now) -->
+         <VBox spacing="8">
+            <!-- Sample record 1 -->
+            <HBox spacing="20">
+               <Label text="01.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
+               <Label text="1750" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
+            </HBox>
+
+            <!-- Sample record 2 -->
+            <HBox spacing="20">
+               <Label text="02.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
+               <Label text="5000" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
+            </HBox>
+
+            <!-- Sample record 3 -->
+            <HBox spacing="20">
+               <Label text="03.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
+               <Label text="1750" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
+            </HBox>
+
+            <!-- Sample record 4 -->
+            <HBox spacing="20">
+               <Label text="04.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
+               <Label text="5000" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
+            </HBox>
+         </VBox>
+      </VBox>
+   </VBox>
+
+
+   <!-- Logout Button Top Right -->
+   <Button text="Logout"
+           onAction="#handleLogout"
+           StackPane.alignment="TOP_RIGHT"
+           style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-width: 1; -fx-border-radius: 3; -fx-padding: 5 15;">
+      <StackPane.margin>
+         <Insets top="20" right="60"/>
+      </StackPane.margin>
+   </Button>
+
+   <!-- Close Button -->
+   <Button fx:id="closeBtn" StackPane.alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#close" style="-fx-background-color: RED;" text="X" textFill="WHITE">
+      <StackPane.margin>
+         <Insets top="22" right="30" />
+      </StackPane.margin>
+   </Button>
+
+</StackPane>
