@@ -50,7 +50,7 @@ public class RootApplication extends Application {
         Task<Void> sleeper = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                Thread.sleep(3000);
+                Thread.sleep(10);
                 return null;
             }
         };

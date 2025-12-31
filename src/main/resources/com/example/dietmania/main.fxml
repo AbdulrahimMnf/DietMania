@@ -8,6 +8,14 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Rectangle?>
 
+
+
+
+
+
+
+
+<?import javafx.scene.control.ScrollPane?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="com.example.dietmania.Controllers.MainController"
@@ -118,44 +126,64 @@
          </VBox>
       </HBox>
 
+
       <!-- Records Section -->
-      <VBox spacing="15"
+      <VBox spacing="30"
+
             style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 25; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);">
 
          <HBox spacing="10">
-            <Label text="Record"
-                   style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #333;"/>
-            <Label text="Past"
-                   style="-fx-font-size: 16; -fx-text-fill: #666;"/>
+            <Button text="Consumption Records"
+                    onAction="#goToConsumption"
+                    style="-fx-background-color: #237d2f; -fx-text-fill: #fff; -fx-border-radius: 3; -fx-padding: 5 15;"/>
          </HBox>
 
-         <!-- Record Items (Static for now) -->
+         <!-- 🔥 Dynamic Records Container -->
+         <ScrollPane fitToHeight="true" fitToWidth="true">
+            <content>
+               <HBox fx:id="recordsContainer" spacing="20"  prefHeight="100"/>
+            </content>
+         </ScrollPane>
+
+      </VBox>
+
+
+
+
+      <!-- Admin Section -->
+      <VBox spacing="15"
+            fx:id="adminSection"
+            style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 8; -fx-padding: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 2);">
+
+         <HBox spacing="10">
+            <Label text="Admin Panel"
+                   style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #eb4034;"/>
+         </HBox>
          <VBox spacing="8">
-            <!-- Sample record 1 -->
-            <HBox spacing="20">
-               <Label text="01.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
-               <Label text="1750" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
-            </HBox>
 
-            <!-- Sample record 2 -->
             <HBox spacing="20">
-               <Label text="02.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
-               <Label text="5000" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
-            </HBox>
 
-            <!-- Sample record 3 -->
-            <HBox spacing="20">
-               <Label text="03.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
-               <Label text="1750" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
-            </HBox>
+               <Button text="Categories"
+                       onAction="#goToCategories"
+                       style="-fx-background-color: transparent; -fx-text-fill: #008e9a; -fx-border-color: #008e9a; -fx-border-width: 1; -fx-border-radius: 3; -fx-padding: 5 15;">
+               </Button>
+               <Button text="Products"
+                       onAction="#goToProducts"
+                       style="-fx-background-color: transparent; -fx-text-fill: #4287f5; -fx-border-color: #4287f5; -fx-border-width: 1; -fx-border-radius: 3; -fx-padding: 5 15;">
+               </Button>
+               <Button text="Users"
+                       onAction="#goToUsers"
+                       style="-fx-background-color: transparent; -fx-text-fill: #f58742; -fx-border-color: #f58742; -fx-border-width: 1; -fx-border-radius: 3; -fx-padding: 5 15;">
+               </Button>
 
-            <!-- Sample record 4 -->
-            <HBox spacing="20">
-               <Label text="04.01.2026" style="-fx-font-size: 14; -fx-text-fill: #333; -fx-min-width: 100;"/>
-               <Label text="5000" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
             </HBox>
          </VBox>
       </VBox>
+
+
+
+
+
    </VBox>
 
 

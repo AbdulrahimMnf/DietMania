@@ -3,9 +3,14 @@ package com.example.dietmania.Controllers;
 
 import com.example.dietmania.Models.User;
 import com.example.dietmania.Services.Resources.Users;
+import com.example.dietmania.Services.Settings.SessionManager;
+import com.example.dietmania.utils.GoTo;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
@@ -49,11 +54,12 @@ public class UserController {
     private ComboBox<String> genderCombo;
     
     @FXML
-    private TextField targetField;
+    private ComboBox<String> targetCombo;
     
     @FXML
     private ComboBox<String> roleCombo;
-    
+
+
     private User selectedUser;
     
     @FXML
@@ -65,8 +71,9 @@ public class UserController {
         
         // Setup combos
         genderCombo.getItems().addAll("MALE", "FEMALE");
-        roleCombo.getItems().addAll("USER", "ADMIN");
-        
+        roleCombo.getItems().addAll( "ADMIN");
+        targetCombo.getItems().addAll( "LOSE WIGHT" , "EARN WIGHT" , "STAY HEALTHY");
+
         // Load users
         loadUsers();
         
@@ -97,7 +104,7 @@ public class UserController {
         lengthField.setText(String.valueOf(user.getLength()));
         ageField.setText(String.valueOf(user.getAge()));
         genderCombo.setValue(user.getGender());
-        targetField.setText(user.getTarget());
+        targetCombo.setValue(user.getTarget());
         roleCombo.setValue(user.getRole());
     }
     
@@ -114,7 +121,7 @@ public class UserController {
             user.setLength(Integer.parseInt(lengthField.getText().trim()));
             user.setAge(Integer.parseInt(ageField.getText().trim()));
             user.setGender(genderCombo.getValue());
-            user.setTarget(targetField.getText().trim());
+            user.setTarget(targetCombo.getValue().trim());
             user.setRole(roleCombo.getValue());
 
             try {
@@ -149,7 +156,7 @@ public class UserController {
             selectedUser.setLength(Integer.parseInt(lengthField.getText().trim()));
             selectedUser.setAge(Integer.parseInt(ageField.getText().trim()));
             selectedUser.setGender(genderCombo.getValue());
-            selectedUser.setTarget(targetField.getText().trim());
+            selectedUser.setTarget(targetCombo.getValue());
             selectedUser.setRole(roleCombo.getValue());
 
             try {
@@ -224,7 +231,7 @@ public class UserController {
         lengthField.clear();
         ageField.clear();
         genderCombo.setValue(null);
-        targetField.clear();
+        targetCombo.setValue(null);
         roleCombo.setValue(null);
     }
     
@@ -235,5 +242,32 @@ public class UserController {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+
+
+    public void goBack(ActionEvent event) {
+        GoTo.page(
+                (Node) event.getSource(),
+                "main.fxml"
+        );
+    }
+
+
+    @FXML
+    private void handleLogout(ActionEvent event) {
+        SessionManager.clearSession();
+        GoTo.page(
+                (Node) event.getSource(),
+                "login.fxml"
+        );
+    }
+
+
+    @FXML
+    private void close(ActionEvent event) {
+        Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+
 }
 

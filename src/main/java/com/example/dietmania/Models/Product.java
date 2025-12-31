@@ -1,8 +1,6 @@
 package com.example.dietmania.Models;
 
-/**
- * Product model representing a food product
- */
+
 public class Product {
     private String id;
     private String name;

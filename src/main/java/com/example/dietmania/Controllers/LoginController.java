@@ -30,7 +30,7 @@ public class LoginController {
     private PasswordField passwordField;
     
     @FXML
-    private void handleLogin() {
+    private void handleLogin(ActionEvent event) {
 
         String email = emailField.getText().trim();
         String password = passwordField.getText();
@@ -40,7 +40,6 @@ public class LoginController {
             showAlert("Error", "Please enter email and password");
             return;
         }
-
 
         Login login = new Login();
         User user = null;
@@ -52,10 +51,11 @@ public class LoginController {
         }
 
         if (user != null) {
-            // navigateToMain();
-//            showAlert("Login Successful","Wellcome : "+ user.getName() );
             SessionManager.saveUser(user);
-            showAlert("200", SessionManager.loadUser().getGender());
+            GoTo.page(
+                    (Node) event.getSource(),
+                    "main.fxml"
+            );
         } else {
             showAlert("Error", "Invalid email or password");
         }
@@ -70,8 +70,6 @@ public class LoginController {
                 "register.fxml"
         );
     }
-
-
 
 
 
