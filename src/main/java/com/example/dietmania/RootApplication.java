@@ -16,7 +16,6 @@ import java.io.IOException;
 public class RootApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-
         splashScreen();
     }
 
@@ -50,7 +49,7 @@ public class RootApplication extends Application {
         Task<Void> sleeper = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
-                Thread.sleep(10);
+                Thread.sleep(3000);
                 return null;
             }
         };

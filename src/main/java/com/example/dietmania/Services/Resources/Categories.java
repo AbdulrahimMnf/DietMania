@@ -1,6 +1,7 @@
 package com.example.dietmania.Services.Resources;
 
 import com.example.dietmania.DAO.DbConnection;
+import com.example.dietmania.DAO.ICrud;
 import com.example.dietmania.Models.Category;
 
 import java.sql.ResultSet;
@@ -8,7 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Categories {
+public class Categories implements ICrud<Category> {
 
     protected DbConnection DB;
 
@@ -65,9 +66,9 @@ public class Categories {
         return categories;
     }
 
-
-
-
+    public Category get(String id) {
+        return null;
+    }
 
 
     public Category getById(String id) throws SQLException {
@@ -81,8 +82,6 @@ public class Categories {
         }
         return null;
     }
-
-
 
 
 

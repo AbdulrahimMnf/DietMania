@@ -14,10 +14,7 @@ import javafx.stage.Stage;
 
 import java.sql.SQLException;
 
-/**
- * User controller
- * Handles user management (Admin only)
- */
+
 public class UserController {
     
     @FXML

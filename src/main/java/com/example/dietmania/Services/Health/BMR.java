@@ -15,7 +15,7 @@ public class BMR {
     public static double calculate(User user) {
 
         double bmr = 10 * user.getKg() + 6.25 * user.getLength() - 5 * user.getAge();
-
+ 
         if ("MALE".equalsIgnoreCase(user.getGender())) {
             bmr += 5;
         } else {

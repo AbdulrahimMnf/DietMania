@@ -75,17 +75,23 @@ public class MainController {
             bmiLabel.setText(String.format("%.1f", BMI.calculate(authenticatedUser)));
             proteinLabel.setText(DailyProteinNeeded.calculate(authenticatedUser) + " g");
             waterLabel.setText(DailyWaterNeeded.calculate(authenticatedUser) + " l");
-            kcalLabel.setText(String.valueOf(DailyKcalNeeded.calculate(authenticatedUser)));
 
-            
-            
-            
+
+
+            Consumptions consumptions = new Consumptions();
+            int dailyKcal = (int) DailyKcalNeeded.calculate(authenticatedUser);
+            int consumedKcal = (int) consumptions.GetDailyTotalKcal(authenticatedUser.getId());
+
+            kcalLabel.setText(dailyKcal + " / " + consumedKcal);
+
+
             
             
             // LOAD CONSUMPTIONS 
             loadConsumptions(authenticatedUser.getId());
 
-            
+
+
             
             
             
@@ -179,6 +185,7 @@ public class MainController {
     @FXML
     private void navigateToEditProfile(ActionEvent event) {
         System.out.println("Edit Profile clicked");
+        GoTo.page((Node) event.getSource(), "profile.fxml");
     }
 
     @FXML

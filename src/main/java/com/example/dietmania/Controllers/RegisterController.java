@@ -3,6 +3,7 @@ package com.example.dietmania.Controllers;
 
 import com.example.dietmania.Models.User;
 import com.example.dietmania.Services.Auth.Register;
+import com.example.dietmania.Services.Settings.SessionManager;
 import com.example.dietmania.utils.GoTo;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -54,7 +55,7 @@ public class RegisterController {
     }
     
     @FXML
-    private void handleRegister() {
+    private void handleRegister(ActionEvent event) {
         // Validate inputs
         if (nameField.getText().trim().isEmpty() ||
             emailField.getText().trim().isEmpty() ||
@@ -84,8 +85,13 @@ public class RegisterController {
 
             try {
                 if (register.register(user)) {
+                    SessionManager.saveUser(user);
+
                     showAlert("Success", "Registration successful!");
-                    navigateToMain();
+                    GoTo.page(
+                            (Node) event.getSource(),
+                            "main.fxml"
+                    );
                 } else {
                     showAlert("Error", "Registration failed. Email may already exist.");
                 }
@@ -105,17 +111,7 @@ public class RegisterController {
         );
     }
     
-    private void navigateToMain() {
-        try {
-            Stage stage = (Stage) nameField.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
     
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

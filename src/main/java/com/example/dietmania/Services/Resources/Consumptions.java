@@ -1,6 +1,8 @@
 package com.example.dietmania.Services.Resources;
 
 import com.example.dietmania.DAO.DbConnection;
+import com.example.dietmania.DAO.ICrud;
+import com.example.dietmania.Models.Category;
 import com.example.dietmania.Models.Consumption;
 
 import java.sql.ResultSet;
@@ -8,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Consumptions {
+public class Consumptions  implements ICrud<Consumption>  {
 
     protected DbConnection DB;
 
@@ -55,6 +57,11 @@ public class Consumptions {
 
         String sql = "DELETE FROM consumptions WHERE id = '" + id + "'";
         return this.DB.execute(sql) > 0;
+    }
+
+    @Override
+    public List<Consumption> list() throws SQLException {
+        return null;
     }
 
 
@@ -118,4 +125,26 @@ public class Consumptions {
 
         return products;
     }
+
+
+
+    public double GetDailyTotalKcal(String userId) throws SQLException {
+        int DayStartHour = 0;
+        String sql =
+                "SELECT IFNULL(SUM(totalKcal), 0) AS total " +
+                        "FROM consumptions " +
+                        "WHERE user_id = '" + userId + "' " +
+                        "AND created_at >= CONCAT(CURDATE(), ' " + DayStartHour + ":00:00') " +
+                        "AND created_at < DATE_ADD(CONCAT(CURDATE(), ' " + DayStartHour + ":00:00'), INTERVAL 1 DAY)";
+        ResultSet rs = this.DB.select(sql);
+
+        if (rs.next()) {
+            return rs.getDouble("total");
+        }
+
+        return 0;
+    }
+
+
+
 }

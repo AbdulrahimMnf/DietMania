@@ -1,6 +1,7 @@
 package com.example.dietmania.Services.Resources;
 
 import com.example.dietmania.DAO.DbConnection;
+import com.example.dietmania.DAO.ICrud;
 import com.example.dietmania.Models.User;
 
 import java.sql.ResultSet;
@@ -8,14 +9,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Users {
+public class Users implements ICrud<User> {
 
     protected DbConnection DB;
 
     public Users() {
         this.DB = new DbConnection();
     }
-
 
     public boolean add(User user) throws SQLException {
         // Register method is ready soo if there time i will make a ui for it

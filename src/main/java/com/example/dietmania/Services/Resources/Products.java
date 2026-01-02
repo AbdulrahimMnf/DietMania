@@ -1,6 +1,8 @@
 package com.example.dietmania.Services.Resources;
 
 import com.example.dietmania.DAO.DbConnection;
+import com.example.dietmania.DAO.ICrud;
+import com.example.dietmania.Models.Category;
 import com.example.dietmania.Models.Product;
 
 import java.sql.ResultSet;
@@ -8,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Products {
+public class Products  implements ICrud<Product> {
 
     protected DbConnection DB;
 
@@ -79,8 +81,10 @@ public class Products {
         return products;
     }
 
-
-
+    @Override
+    public Product get(String id) throws SQLException {
+        return null;
+    }
 
 
     public Product getById(String id) throws SQLException {

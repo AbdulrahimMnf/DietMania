@@ -1,3 +1,4 @@
+
 package com.example.dietmania.DAO;
 
 import java.sql.*;
@@ -78,7 +79,7 @@ public class DbConnection {
 
 
 
-   //    Used for Create Update and Delete (POST : INSERT , UPDATE , DELETE) quires
+    //    Used for Create Update and Delete (POST : INSERT , UPDATE , DELETE) quires
     public int execute(String query) throws SQLException {
         try (Statement stmt = this.connection.createStatement()) {
             return stmt.executeUpdate(query);

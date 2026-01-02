@@ -120,7 +120,7 @@
             <Label text="Daily KCAL"
                    style="-fx-font-size: 14; -fx-text-fill: #666;"/>
             <Label fx:id="kcalLabel" text="1750"
-                   style="-fx-font-size: 36; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
+                   style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #008e9a;"/>
             <Label text="KCAL"
                    style="-fx-font-size: 14; -fx-text-fill: #666;"/>
          </VBox>
@@ -135,7 +135,7 @@
          <HBox spacing="10">
             <Button text="Consumption Records"
                     onAction="#goToConsumption"
-                    style="-fx-background-color: #237d2f; -fx-text-fill: #fff; -fx-border-radius: 3; -fx-padding: 5 15;"/>
+                    style="-fx-background-color: #237d2f; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-background-radius: 4;"/>
          </HBox>
 
          <!-- 🔥 Dynamic Records Container -->
